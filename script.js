@@ -52,7 +52,7 @@ function renderCategoryPage(){
   const categoryPage=page-category.start+1;
   img.src=`assets/menu/page-${String(page).padStart(2,'0')}.jpg`;
   img.alt=`9 Kopitiam ${category.name.toLowerCase()} menu ${categoryPage} of ${categoryTotal}`;
-  galleryTitle.textContent=`Full ${category.name} menu.`;
+  galleryTitle.textContent=`${category.name} Menu`;
   label.textContent=categoryPage;
   pageTotal.textContent=categoryTotal;
   galleryHint.textContent=`Use the arrows to explore more ${category.name} choices.`;
