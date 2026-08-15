@@ -25,7 +25,21 @@ const categoryRanges=[
   {name:'Bread',start:13,end:17,description:'Buttery croissants, kaya toast and nostalgic bites—perfect with a freshly brewed cup.'},
   {name:'Drinks',start:18,end:22,description:'Kopitiam coffee, tea and refreshing signatures crafted to complete every meal.'}
 ];
+categoryRanges.forEach(category=>{
+  category.items=[];
+  for(let itemPage=category.start;itemPage<=category.end;itemPage++){
+    category.items.push({page:itemPage,focus:'top'},{page:itemPage,focus:'bottom'});
+  }
+});
+categoryRanges[0].items=[
+  {page:3,focus:'top-left'},
+  {page:3,focus:'top-right'},
+  {page:3,focus:'bottom'},
+  ...categoryRanges[0].items.filter(item=>item.page!==3)
+];
 let selectedCategory=null;
+let dishIndex=0;
+const desktopDishMode=()=>window.matchMedia('(min-width:981px)').matches;
 function activeCategory(){return categoryRanges.find(item=>page>=item.start&&page<=item.end)}
 function renderPage(){
   const n=String(page).padStart(2,'0');
@@ -49,14 +63,19 @@ function renderCategory(name){
   const category=categoryRanges.find(item=>item.name===name);
   if(!category)return;
   selectedCategory=category;
+  dishIndex=0;
   page=category.start;
   renderCategoryPage();
 }
 function renderCategoryPage(){
   const category=selectedCategory;
   if(!category)return;
-  const categoryTotal=category.end-category.start+1;
-  const categoryPage=page-category.start+1;
+  const dishMode=desktopDishMode();
+  const dish=dishMode?category.items[dishIndex]:null;
+  if(dish)page=dish.page;
+  menuViewer.dataset.focus=dish?dish.focus:'split';
+  const categoryTotal=dishMode?category.items.length:category.end-category.start+1;
+  const categoryPage=dishMode?dishIndex+1:page-category.start+1;
   img.src=`assets/menu/page-${String(page).padStart(2,'0')}.jpg`;
   imgSecond.src=img.src;
   if(img.animate){img.animate([{opacity:.35},{opacity:1}],{duration:420,easing:'ease-out'});imgSecond.animate([{opacity:.35},{opacity:1}],{duration:420,easing:'ease-out'});}
@@ -76,6 +95,11 @@ function renderCategoryPage(){
 document.querySelectorAll('[data-category]').forEach(control=>control.addEventListener('click',()=>renderCategory(control.dataset.category)));
 function movePage(direction){
   if(selectedCategory){
+    if(desktopDishMode()){
+      dishIndex=(dishIndex+direction+selectedCategory.items.length)%selectedCategory.items.length;
+      renderCategoryPage();
+      return;
+    }
     page+=direction;
     if(page<selectedCategory.start)page=selectedCategory.end;
     if(page>selectedCategory.end)page=selectedCategory.start;
