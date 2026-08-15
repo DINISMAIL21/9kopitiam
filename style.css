@@ -15,15 +15,31 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
 .gallery-tabs button:focus-visible{outline:3px solid rgba(164,53,39,.25);outline-offset:3px}
 
 
-/* Premium 9 Kopitiam motif behind the complete-menu controls */
-.gallery{position:relative;overflow:hidden;isolation:isolate;background:
-  radial-gradient(circle at 12% 9%,rgba(143,39,36,.075) 0 2px,transparent 3px),
-  radial-gradient(circle at 14% 12%,rgba(24,61,47,.065) 0 3px,transparent 4px),
-  linear-gradient(135deg,#eee7dc 0%,#e7dfd2 52%,#f1eadf 100%);
-  background-size:48px 48px,62px 62px,auto}
-.gallery::before{content:"";position:absolute;width:clamp(260px,38vw,540px);aspect-ratio:1;right:clamp(-190px,-10vw,-70px);top:34px;border-radius:50%;background:url('assets/9kopitiam-logo.jpeg') center/cover no-repeat;opacity:.055;filter:grayscale(1) sepia(.25);pointer-events:none;z-index:0}
-.gallery::after{content:"9";position:absolute;left:clamp(-45px,-2vw,-10px);top:145px;font-family:'Playfair Display',serif;font-size:clamp(210px,32vw,460px);font-weight:700;line-height:.8;color:rgba(143,39,36,.035);transform:rotate(-8deg);pointer-events:none;z-index:0}
+/* Premium 9 Kopitiam complete-menu stage */
+.gallery{position:relative;overflow:hidden;isolation:isolate;background:#e9e2d6;text-align:center}
+.gallery::before{content:"";position:absolute;inset:0 0 auto;height:610px;background:
+  linear-gradient(115deg,rgba(143,39,36,.96) 0%,rgba(105,29,31,.96) 22%,rgba(24,61,47,.98) 62%,rgba(13,42,31,.99) 100%);
+  pointer-events:none;z-index:0}
+.gallery::after{content:"";position:absolute;width:clamp(330px,38vw,570px);aspect-ratio:1;right:clamp(-190px,-8vw,-70px);top:-70px;border-radius:50%;background:
+  linear-gradient(rgba(18,48,36,.56),rgba(18,48,36,.56)),
+  url('assets/9kopitiam-logo.jpeg') center/cover no-repeat;
+  opacity:.32;filter:saturate(.75);box-shadow:0 0 0 34px rgba(255,255,255,.025),0 0 0 35px rgba(232,199,126,.12);pointer-events:none;z-index:0}
 .gallery>*{position:relative;z-index:1}
-.gallery-tabs{padding:14px;border:1px solid rgba(255,255,255,.58);border-radius:28px;background:rgba(255,255,255,.28);box-shadow:0 18px 46px rgba(70,48,31,.07);backdrop-filter:blur(5px)}
-.gallery-tabs button{box-shadow:0 7px 20px rgba(30,45,35,.055)}
-@media(max-width:620px){.gallery::before{width:300px;right:-160px;top:95px;opacity:.05}.gallery::after{left:-32px;top:220px;font-size:250px;color:rgba(143,39,36,.03)}.gallery-tabs{padding:11px 8px;border-radius:24px}}
+.gallery .section-heading{color:#fff;padding-bottom:25px;border-bottom:1px solid rgba(255,255,255,.16)}
+.gallery .section-heading .eyebrow{color:#e9c77d}
+.gallery .section-heading h2{color:#fff;text-shadow:0 3px 20px rgba(0,0,0,.16)}
+.gallery-tabs{width:max-content;max-width:100%;padding:10px;margin:24px auto 20px;border:1px solid rgba(233,199,125,.25);border-radius:999px;background:rgba(7,29,21,.3);box-shadow:0 22px 48px rgba(5,22,16,.22);backdrop-filter:blur(12px)}
+.gallery-tabs button{border:1px solid rgba(255,255,255,.18);background:#f9f4e9;color:#193d30;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.gallery-tabs button:hover,.gallery-tabs button.active{background:#e4bd68;color:#173528;border-color:#f2d594;box-shadow:0 9px 24px rgba(228,189,104,.22)}
+.gallery-controls{margin:25px 0 34px;color:#fff}
+.gallery-controls button{width:54px;height:54px;border:1px solid rgba(233,199,125,.5);background:rgba(255,255,255,.96);color:#8f2724;box-shadow:0 12px 28px rgba(0,0,0,.18)}
+.gallery-controls span{min-width:76px;font-size:18px;letter-spacing:.03em}
+.menu-viewer{margin-top:0}
+@media(max-width:620px){
+  .gallery::before{height:550px;background:linear-gradient(145deg,#8f2724 0%,#6e2024 25%,#183d2f 67%,#102d22 100%)}
+  .gallery::after{width:330px;right:-178px;top:-20px;opacity:.25}
+  .gallery .section-heading{padding-right:55px;padding-bottom:20px}
+  .gallery-tabs{width:100%;padding:11px 8px;border-radius:26px;gap:9px;background:rgba(8,30,22,.34)}
+  .gallery-tabs button{padding:10px 17px}
+  .gallery-controls{margin:24px 0 32px}
+}
