@@ -55,6 +55,7 @@ function renderCategoryPage(){
   const categoryTotal=category.end-category.start+1;
   const categoryPage=page-category.start+1;
   img.src=`assets/menu/page-${String(page).padStart(2,'0')}.jpg`;
+  if(img.animate)img.animate([{opacity:.35,transform:'scale(1.025)'},{opacity:1,transform:'scale(1)'}],{duration:420,easing:'ease-out'});
   img.alt=`9 Kopitiam ${category.name.toLowerCase()} menu ${categoryPage} of ${categoryTotal}`;
   galleryTitle.textContent=`${category.name} Menu`;
   galleryDescription.textContent=category.description;
