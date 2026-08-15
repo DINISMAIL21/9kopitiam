@@ -15,4 +15,5 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
 .category-pages{display:grid;gap:22px;max-width:820px;margin:0 auto}
 .category-pages[hidden],.menu-viewer[hidden],.gallery-controls[hidden]{display:none!important}
 .category-pages img{width:100%;height:auto;border-radius:24px;background:#fff;box-shadow:0 18px 55px rgba(12,35,25,.12)}
+.gallery-hint{margin:0 auto 18px;color:#5f6b63;font-size:14px;font-weight:600}
 @media(max-width:620px){.category-pages{gap:14px}.category-pages img{border-radius:18px}}
