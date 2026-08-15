@@ -9,6 +9,8 @@ reveals.forEach(el=>observer.observe(el));
 
 let page=1; const total=23;
 const img=document.getElementById('menuPage'); const label=document.getElementById('currentPage');
+const pageTotal=document.getElementById('pageTotal');
+const galleryHint=document.getElementById('galleryHint');
 const galleryTitle=document.getElementById('galleryTitle');
 const galleryControls=document.getElementById('galleryControls');
 const menuViewer=document.querySelector('.menu-viewer');
@@ -20,6 +22,7 @@ const categoryRanges=[
   {name:'Bread',start:13,end:17},
   {name:'Drinks',start:18,end:22}
 ];
+let selectedCategory=null;
 function activeCategory(){return categoryRanges.find(item=>page>=item.start&&page<=item.end)}
 function renderPage(){
   const n=String(page).padStart(2,'0');
@@ -28,6 +31,8 @@ function renderPage(){
   img.alt=`9 Kopitiam ${category?category.name.toLowerCase():'menu'} page ${page}`;
   label.textContent=page;
   galleryTitle.textContent=category?`${category.name} menu.`:'Browse every page.';
+  pageTotal.textContent=total;
+  galleryHint.textContent='Use the arrows to explore the complete menu.';
   galleryControls.hidden=false;
   menuViewer.hidden=false;
   categoryPages.hidden=true;
@@ -36,23 +41,41 @@ function renderPage(){
 function renderCategory(name){
   const category=categoryRanges.find(item=>item.name===name);
   if(!category)return;
+  selectedCategory=category;
   page=category.start;
+  renderCategoryPage();
+}
+function renderCategoryPage(){
+  const category=selectedCategory;
+  if(!category)return;
+  const categoryTotal=category.end-category.start+1;
+  const categoryPage=page-category.start+1;
+  img.src=`assets/menu/page-${String(page).padStart(2,'0')}.jpg`;
+  img.alt=`9 Kopitiam ${category.name.toLowerCase()} menu ${categoryPage} of ${categoryTotal}`;
   galleryTitle.textContent=`Full ${category.name} menu.`;
-  galleryControls.hidden=true;
-  menuViewer.hidden=true;
-  categoryPages.hidden=false;
-  categoryPages.innerHTML='';
-  for(let current=category.start;current<=category.end;current++){
-    const picture=document.createElement('img');
-    picture.src=`assets/menu/page-${String(current).padStart(2,'0')}.jpg`;
-    picture.alt=`9 Kopitiam ${category.name.toLowerCase()} menu page ${current}`;
-    picture.loading=current===category.start?'eager':'lazy';
-    categoryPages.appendChild(picture);
-  }
+  label.textContent=categoryPage;
+  pageTotal.textContent=categoryTotal;
+  galleryHint.textContent=`Use the arrows to explore more ${category.name} choices.`;
+  galleryControls.hidden=false;
+  menuViewer.hidden=false;
+  categoryPages.hidden=true;
   document.querySelectorAll('.gallery-tabs button').forEach(button=>button.classList.toggle('active',button.dataset.category===category.name));
 }
 document.querySelectorAll('[data-category]').forEach(control=>control.addEventListener('click',()=>renderCategory(control.dataset.category)));
-document.getElementById('prevPage').addEventListener('click',()=>{page=page===1?total:page-1;renderPage()});
-document.getElementById('nextPage').addEventListener('click',()=>{page=page===total?1:page+1;renderPage()});
-document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){page=page===1?total:page-1;renderPage()}if(e.key==='ArrowRight'){page=page===total?1:page+1;renderPage()}});
+function movePage(direction){
+  if(selectedCategory){
+    page+=direction;
+    if(page<selectedCategory.start)page=selectedCategory.end;
+    if(page>selectedCategory.end)page=selectedCategory.start;
+    renderCategoryPage();
+    return;
+  }
+  page+=direction;
+  if(page<1)page=total;
+  if(page>total)page=1;
+  renderPage();
+}
+document.getElementById('prevPage').addEventListener('click',()=>movePage(-1));
+document.getElementById('nextPage').addEventListener('click',()=>movePage(1));
+document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')movePage(-1);if(e.key==='ArrowRight')movePage(1)});
 renderPage();
