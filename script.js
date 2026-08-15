@@ -7,20 +7,22 @@ const reveals=document.querySelectorAll('.reveal');
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
 reveals.forEach(el=>observer.observe(el));
 
-let page=1; const total=23;
+let page=2; const total=23;
 const img=document.getElementById('menuPage'); const label=document.getElementById('currentPage');
 const pageTotal=document.getElementById('pageTotal');
 const galleryHint=document.getElementById('galleryHint');
 const galleryTitle=document.getElementById('galleryTitle');
+const galleryDescription=document.getElementById('galleryDescription');
+const galleryBadge=document.getElementById('galleryBadge');
 const galleryControls=document.getElementById('galleryControls');
 const menuViewer=document.querySelector('.menu-viewer');
 const categoryPages=document.getElementById('categoryPages');
 const categoryRanges=[
-  {name:'Rice',start:3,end:6},
-  {name:'Noodles',start:7,end:10},
-  {name:'Western',start:11,end:12},
-  {name:'Bread',start:13,end:17},
-  {name:'Drinks',start:18,end:22}
+  {name:'Rice',start:3,end:6,description:'Fragrant nasi lemak, wok-fired rice and bold Malaysian flavours made for a satisfying meal.'},
+  {name:'Noodles',start:7,end:10,description:'Comforting bowls, springy noodles and rich broths inspired by familiar kopitiam favourites.'},
+  {name:'Western',start:11,end:12,description:'Crispy, hearty classics served with the generous character of 9 Kopitiam.'},
+  {name:'Bread',start:13,end:17,description:'Buttery croissants, kaya toast and nostalgic bites—perfect with a freshly brewed cup.'},
+  {name:'Drinks',start:18,end:22,description:'Kopitiam coffee, tea and refreshing signatures crafted to complete every meal.'}
 ];
 let selectedCategory=null;
 function activeCategory(){return categoryRanges.find(item=>page>=item.start&&page<=item.end)}
@@ -30,7 +32,9 @@ function renderPage(){
   img.src=`assets/menu/page-${n}.jpg`;
   img.alt=`9 Kopitiam ${category?category.name.toLowerCase():'menu'} page ${page}`;
   label.textContent=page;
-  galleryTitle.textContent=category?`${category.name} menu.`:'Browse every page.';
+  galleryTitle.textContent='The complete taste of 9.';
+  galleryDescription.textContent='Discover comforting local favourites, presented with the unmistakable character of 9 Kopitiam.';
+  galleryBadge.textContent='9 Kopitiam Collection';
   pageTotal.textContent=total;
   galleryHint.textContent='Use the arrows to explore the complete menu.';
   galleryControls.hidden=false;
@@ -53,6 +57,8 @@ function renderCategoryPage(){
   img.src=`assets/menu/page-${String(page).padStart(2,'0')}.jpg`;
   img.alt=`9 Kopitiam ${category.name.toLowerCase()} menu ${categoryPage} of ${categoryTotal}`;
   galleryTitle.textContent=`${category.name} Menu`;
+  galleryDescription.textContent=category.description;
+  galleryBadge.textContent=`${category.name} Collection`;
   label.textContent=categoryPage;
   pageTotal.textContent=categoryTotal;
   galleryHint.textContent=`Use the arrows to explore more ${category.name} choices.`;
