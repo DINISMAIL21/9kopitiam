@@ -105,3 +105,10 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
 .gallery-tabs button:nth-child(3){background-position:56% 55%;background-size:245% auto}
 .gallery-tabs button:nth-child(4){background-position:52% 45%;background-size:245% auto}
 .gallery-tabs button:nth-child(5){background-position:74% 64%;background-size:255% auto}
+
+
+/* Floating home button */
+.floating-home{position:fixed;right:22px;bottom:22px;z-index:90;display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:10px 14px;border:1px solid rgba(233,199,125,.72);border-radius:999px;background:rgba(18,54,40,.94);color:#fff;box-shadow:0 12px 30px rgba(7,25,18,.28);backdrop-filter:blur(10px);font-size:12px;font-weight:800;letter-spacing:.02em;transition:transform .2s ease,background .2s ease}
+.floating-home span{font-size:20px;line-height:1;color:#e9c77d}
+.floating-home:hover,.floating-home:focus-visible{transform:translateY(-3px);background:#8f2724;outline:none}
+@media(max-width:520px){.floating-home{right:14px;bottom:14px;min-height:42px;padding:9px 12px}.floating-home b{font-size:11px}}
