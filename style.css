@@ -96,3 +96,12 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
 @media(max-width:520px){
   .gallery-tabs button{min-height:70px;padding:10px 12px;font-size:13px;border-radius:18px}
 }
+
+
+/* Tight food crops for category cards */
+.gallery-tabs button{background-size:260% auto;image-rendering:auto}
+.gallery-tabs button:nth-child(1){background-position:50% 76%}
+.gallery-tabs button:nth-child(2){background-position:40% 34%}
+.gallery-tabs button:nth-child(3){background-position:56% 55%;background-size:245% auto}
+.gallery-tabs button:nth-child(4){background-position:52% 45%;background-size:245% auto}
+.gallery-tabs button:nth-child(5){background-position:74% 64%;background-size:255% auto}
