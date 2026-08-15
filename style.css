@@ -74,3 +74,25 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
   .gallery-tabs button{grid-column:span 2;width:100%;min-width:0;padding:11px 6px;font-size:13px;white-space:nowrap}
   .gallery-tabs button:nth-child(4),.gallery-tabs button:nth-child(5){grid-column:span 3}
 }
+
+
+/* Illustrated menu category cards */
+.gallery-tabs button{
+  position:relative;overflow:hidden;isolation:isolate;min-height:64px;
+  display:flex;align-items:flex-end;justify-content:flex-start;
+  padding:12px 18px;color:#fff;border:1px solid rgba(255,255,255,.28);
+  background-position:center;background-size:cover;background-repeat:no-repeat;
+  font-weight:800;text-shadow:0 2px 8px rgba(0,0,0,.9);
+  box-shadow:0 10px 24px rgba(0,0,0,.2);
+}
+.gallery-tabs button::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,25,18,.08) 15%,rgba(8,25,18,.86) 100%);transition:.2s ease}
+.gallery-tabs button:nth-child(1){background-image:url('assets/menu/page-03.jpg')}
+.gallery-tabs button:nth-child(2){background-image:url('assets/menu/page-07.jpg')}
+.gallery-tabs button:nth-child(3){background-image:url('assets/menu/page-11.jpg')}
+.gallery-tabs button:nth-child(4){background-image:url('assets/menu/page-13.jpg')}
+.gallery-tabs button:nth-child(5){background-image:url('assets/menu/page-18.jpg')}
+.gallery-tabs button:hover,.gallery-tabs button.active{color:#fff;border-color:#e9c77d;transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.28),0 0 0 2px rgba(233,199,125,.28)}
+.gallery-tabs button:hover::before,.gallery-tabs button.active::before{background:linear-gradient(180deg,rgba(120,73,16,.04) 5%,rgba(74,44,10,.76) 100%)}
+@media(max-width:520px){
+  .gallery-tabs button{min-height:70px;padding:10px 12px;font-size:13px;border-radius:18px}
+}
