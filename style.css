@@ -17,3 +17,17 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
 .category-pages img{width:100%;height:auto;border-radius:24px;background:#fff;box-shadow:0 18px 55px rgba(12,35,25,.12)}
 .gallery-hint{margin:0 auto 18px;color:#5f6b63;font-size:14px;font-weight:600}
 @media(max-width:620px){.category-pages{gap:14px}.category-pages img{border-radius:18px}}
+
+/* Premium menu gallery: keep one complete menu page visible at a time. */
+.gallery{background:linear-gradient(180deg,#eee8dd 0%,#e5ded1 100%)}
+.gallery .section-heading h2{font-size:clamp(38px,5vw,68px)}
+.menu-viewer{position:relative;width:min(980px,100%);max-width:none;height:min(72vh,900px);min-height:440px;margin:0 auto;background:#15372a;padding:18px;border-radius:28px;box-shadow:0 28px 80px rgba(12,35,25,.22);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.menu-viewer img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.2)}
+.gallery-controls{position:absolute;inset:0;display:block;margin:0;pointer-events:none}
+.gallery-controls .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);width:58px;height:58px;border-radius:50%;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.94);color:#183d2f;font-size:28px;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.2);pointer-events:auto;transition:.2s}
+.gallery-controls .gallery-arrow:hover{transform:translateY(-50%) scale(1.06);background:#fff}
+.gallery-arrow-left{left:28px}.gallery-arrow-right{right:28px}
+.gallery-count{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);padding:9px 16px;border-radius:999px;background:rgba(10,29,21,.82);color:#fff;font-weight:700;letter-spacing:.06em;backdrop-filter:blur(10px)}
+.gallery-hint{margin:18px auto 0}
+.gallery-actions{margin-top:24px}
+@media(max-width:620px){.gallery{padding-left:14px;padding-right:14px}.gallery .section-heading h2{font-size:42px}.gallery-tabs{gap:8px;margin-bottom:20px}.gallery-tabs button{padding:9px 14px;font-size:13px}.menu-viewer{height:66vh;min-height:420px;padding:10px;border-radius:22px}.menu-viewer img{border-radius:11px}.gallery-controls .gallery-arrow{width:46px;height:46px;font-size:23px;background:rgba(255,255,255,.9)}.gallery-arrow-left{left:16px}.gallery-arrow-right{right:16px}.gallery-count{bottom:15px;font-size:13px;padding:7px 13px}.gallery-hint{font-size:12px}}
