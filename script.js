@@ -7,7 +7,9 @@ function updateFloatingHome(){
 }
 window.addEventListener('scroll',updateFloatingHome,{passive:true});
 window.addEventListener('resize',updateFloatingHome);
-updateFloatingHome();\n\nconst toggle=document.querySelector('.menu-toggle');
+updateFloatingHome();
+
+const toggle=document.querySelector('.menu-toggle');
 const nav=document.querySelector('.nav');
 toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open)});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
