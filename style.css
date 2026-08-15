@@ -118,3 +118,7 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
 .floating-home{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px)}
 .floating-home.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
 .floating-home.is-visible:hover,.floating-home.is-visible:focus-visible{transform:translateY(-3px)}
+
+
+/* Bread button: white toast with butter */
+.gallery-tabs button:nth-child(4){background-image:url('assets/menu/page-15.jpg');background-position:18% 15%;background-size:275% auto}
