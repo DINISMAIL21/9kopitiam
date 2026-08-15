@@ -13,3 +13,17 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
 .gallery-tabs button{appearance:none;border:1px solid rgba(28,59,45,.2);background:#fff;color:#1c3b2d;border-radius:999px;padding:10px 18px;font:600 14px 'DM Sans',sans-serif;cursor:pointer;transition:.2s ease}
 .gallery-tabs button:hover,.gallery-tabs button.active{background:#1c3b2d;color:#fff;border-color:#1c3b2d;transform:translateY(-1px)}
 .gallery-tabs button:focus-visible{outline:3px solid rgba(164,53,39,.25);outline-offset:3px}
+
+
+/* Premium 9 Kopitiam motif behind the complete-menu controls */
+.gallery{position:relative;overflow:hidden;isolation:isolate;background:
+  radial-gradient(circle at 12% 9%,rgba(143,39,36,.075) 0 2px,transparent 3px),
+  radial-gradient(circle at 14% 12%,rgba(24,61,47,.065) 0 3px,transparent 4px),
+  linear-gradient(135deg,#eee7dc 0%,#e7dfd2 52%,#f1eadf 100%);
+  background-size:48px 48px,62px 62px,auto}
+.gallery::before{content:"";position:absolute;width:clamp(260px,38vw,540px);aspect-ratio:1;right:clamp(-190px,-10vw,-70px);top:34px;border-radius:50%;background:url('assets/9kopitiam-logo.jpeg') center/cover no-repeat;opacity:.055;filter:grayscale(1) sepia(.25);pointer-events:none;z-index:0}
+.gallery::after{content:"9";position:absolute;left:clamp(-45px,-2vw,-10px);top:145px;font-family:'Playfair Display',serif;font-size:clamp(210px,32vw,460px);font-weight:700;line-height:.8;color:rgba(143,39,36,.035);transform:rotate(-8deg);pointer-events:none;z-index:0}
+.gallery>*{position:relative;z-index:1}
+.gallery-tabs{padding:14px;border:1px solid rgba(255,255,255,.58);border-radius:28px;background:rgba(255,255,255,.28);box-shadow:0 18px 46px rgba(70,48,31,.07);backdrop-filter:blur(5px)}
+.gallery-tabs button{box-shadow:0 7px 20px rgba(30,45,35,.055)}
+@media(max-width:620px){.gallery::before{width:300px;right:-160px;top:95px;opacity:.05}.gallery::after{left:-32px;top:220px;font-size:250px;color:rgba(143,39,36,.03)}.gallery-tabs{padding:11px 8px;border-radius:24px}}
