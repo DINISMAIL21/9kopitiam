@@ -9,6 +9,7 @@ reveals.forEach(el=>observer.observe(el));
 
 let page=2; const total=23;
 const img=document.getElementById('menuPage'); const label=document.getElementById('currentPage');
+const imgSecond=document.getElementById('menuPageSecond');
 const pageTotal=document.getElementById('pageTotal');
 const galleryHint=document.getElementById('galleryHint');
 const galleryTitle=document.getElementById('galleryTitle');
@@ -30,7 +31,9 @@ function renderPage(){
   const n=String(page).padStart(2,'0');
   const category=activeCategory();
   img.src=`assets/menu/page-${n}.jpg`;
+  imgSecond.src=img.src;
   img.alt=`9 Kopitiam ${category?category.name.toLowerCase():'menu'} page ${page}`;
+  imgSecond.alt=`${img.alt} lower section`;
   label.textContent=page;
   galleryTitle.textContent='The complete taste of 9.';
   galleryDescription.textContent='Discover comforting local favourites, presented with the unmistakable character of 9 Kopitiam.';
@@ -55,8 +58,10 @@ function renderCategoryPage(){
   const categoryTotal=category.end-category.start+1;
   const categoryPage=page-category.start+1;
   img.src=`assets/menu/page-${String(page).padStart(2,'0')}.jpg`;
-  if(img.animate)img.animate([{opacity:.35,transform:'scale(1.025)'},{opacity:1,transform:'scale(1)'}],{duration:420,easing:'ease-out'});
+  imgSecond.src=img.src;
+  if(img.animate){img.animate([{opacity:.35},{opacity:1}],{duration:420,easing:'ease-out'});imgSecond.animate([{opacity:.35},{opacity:1}],{duration:420,easing:'ease-out'});}
   img.alt=`9 Kopitiam ${category.name.toLowerCase()} menu ${categoryPage} of ${categoryTotal}`;
+  imgSecond.alt=`${img.alt} lower section`;
   galleryTitle.textContent=`${category.name} Menu`;
   galleryDescription.textContent=category.description;
   galleryBadge.textContent=`${category.name} Collection`;
