@@ -97,15 +97,3 @@ document.getElementById('prevPage').addEventListener('click',()=>movePage(-1));
 document.getElementById('nextPage').addEventListener('click',()=>movePage(1));
 document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')movePage(-1);if(e.key==='ArrowRight')movePage(1)});
 renderPage();
-
-
-// Show Home only after leaving the main hero
-const floatingHome=document.querySelector('.floating-home');
-function updateFloatingHome(){
-  if(!floatingHome)return;
-  const showAfter=Math.max(420,window.innerHeight*.72);
-  floatingHome.classList.toggle('is-visible',window.scrollY>showAfter);
-}
-window.addEventListener('scroll',updateFloatingHome,{passive:true});
-window.addEventListener('resize',updateFloatingHome);
-updateFloatingHome();
