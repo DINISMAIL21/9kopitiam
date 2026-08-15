@@ -105,30 +105,34 @@
     </section>
 
     <section id="gallery" class="gallery section-pad">
-      <div class="section-heading reveal">
-        <p class="eyebrow">COMPLETE MENU</p>
-        <h2><span id="galleryTitle">Browse every page.</span></h2>
-      </div>
-      <div class="gallery-tabs reveal" aria-label="Jump to a menu category">
-        <button type="button" data-menu-page="3" data-category="Rice">Rice</button>
-        <button type="button" data-menu-page="7" data-category="Noodles">Noodles</button>
-        <button type="button" data-menu-page="11" data-category="Western">Western</button>
-        <button type="button" data-menu-page="13" data-category="Bread">Bread</button>
-        <button type="button" data-menu-page="18" data-category="Drinks">Drinks</button>
-      </div>
-      <div class="menu-viewer reveal">
-        <img id="menuPage" src="assets/menu/page-01.jpg" alt="9 Kopitiam menu page 1" loading="eager" />
-        <div id="galleryControls" class="gallery-controls" role="group" aria-label="Menu gallery controls">
-          <button id="prevPage" class="gallery-arrow gallery-arrow-left" aria-label="Previous menu">←</button>
-          <span class="gallery-count"><b id="currentPage">1</b> / <span id="pageTotal">23</span></span>
-          <button id="nextPage" class="gallery-arrow gallery-arrow-right" aria-label="Next menu">→</button>
+      <div class="gallery-layout">
+        <div class="gallery-story reveal">
+          <p class="eyebrow">EXPLORE OUR COLLECTION</p>
+          <h2><span id="galleryTitle">The complete taste of 9.</span></h2>
+          <p id="galleryDescription" class="gallery-description">Discover comforting local favourites, presented with the unmistakable character of 9 Kopitiam.</p>
+          <div class="gallery-tabs" aria-label="Choose a menu collection">
+            <button type="button" data-menu-page="3" data-category="Rice">Rice</button>
+            <button type="button" data-menu-page="7" data-category="Noodles">Noodles</button>
+            <button type="button" data-menu-page="11" data-category="Western">Western</button>
+            <button type="button" data-menu-page="13" data-category="Bread">Bread</button>
+            <button type="button" data-menu-page="18" data-category="Drinks">Drinks</button>
+          </div>
+          <p id="galleryHint" class="gallery-hint">Choose a collection to begin.</p>
+          <div class="gallery-actions">
+            <a class="btn btn-dark" href="menu-9-kopitiam.pdf" target="_blank" rel="noopener">View complete menu</a>
+          </div>
+        </div>
+        <div class="menu-viewer reveal">
+          <span id="galleryBadge" class="gallery-badge">9 Kopitiam Collection</span>
+          <img id="menuPage" src="assets/menu/page-02.jpg" alt="9 Kopitiam food collection" loading="eager" />
+          <div id="galleryControls" class="gallery-controls" role="group" aria-label="Menu gallery controls">
+            <button id="prevPage" class="gallery-arrow gallery-arrow-left" aria-label="Previous menu">←</button>
+            <span class="gallery-count"><b id="currentPage">1</b> / <span id="pageTotal">23</span></span>
+            <button id="nextPage" class="gallery-arrow gallery-arrow-right" aria-label="Next menu">→</button>
+          </div>
         </div>
       </div>
-      <p id="galleryHint" class="gallery-hint">Use the arrows to explore the complete menu.</p>
       <div id="categoryPages" class="category-pages" aria-live="polite"></div>
-      <div class="gallery-actions">
-        <a class="btn btn-dark" href="menu-9-kopitiam.pdf" target="_blank" rel="noopener">Download / print menu</a>
-      </div>
       <p class="notice">Photos are for illustration purposes only. Prices are subject to service charge and SST. Takeaway packaging charges apply.</p>
     </section>
 
