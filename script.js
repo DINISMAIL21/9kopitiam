@@ -1,4 +1,13 @@
-const toggle=document.querySelector('.menu-toggle');
+// Show Home only after leaving the main hero
+const floatingHome=document.querySelector('.floating-home');
+function updateFloatingHome(){
+  if(!floatingHome)return;
+  const showAfter=Math.max(420,window.innerHeight*.72);
+  floatingHome.classList.toggle('is-visible',window.scrollY>showAfter);
+}
+window.addEventListener('scroll',updateFloatingHome,{passive:true});
+window.addEventListener('resize',updateFloatingHome);
+updateFloatingHome();\n\nconst toggle=document.querySelector('.menu-toggle');
 const nav=document.querySelector('.nav');
 toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open)});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
