@@ -14,7 +14,7 @@
 <body>
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="9 Kopitiam home">
-      <img class="brand-logo" src="assets/9kopitiam-logo.jpeg" alt="9 Kopitiam logo" />
+      <span class="brand-mark">9</span>
       <span><strong>9 KOPITIAM</strong><small>LOCAL TASTE · ORIGINAL</small></span>
     </a>
     <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
@@ -31,7 +31,6 @@
     <section class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-content reveal">
-        <img class="hero-logo" src="assets/9kopitiam-logo.jpeg" alt="9 Kopitiam Local Taste Original" />
         <p class="eyebrow">LOCAL TASTE · ORIGINAL</p>
         <h1>Comfort food,<br><em>made memorable.</em></h1>
         <p class="hero-copy">From fragrant blue nasi lemak to hearty noodles, crispy chicken chop and nostalgic kopitiam favourites.</p>
@@ -105,34 +104,28 @@
     </section>
 
     <section id="gallery" class="gallery section-pad">
-      <div class="gallery-layout">
-        <div class="gallery-story reveal">
-          <p class="eyebrow">EXPLORE OUR COLLECTION</p>
-          <h2><span id="galleryTitle">The complete taste of 9.</span></h2>
-          <p id="galleryDescription" class="gallery-description">Discover comforting local favourites, presented with the unmistakable character of 9 Kopitiam.</p>
-          <div class="gallery-tabs" aria-label="Choose a menu collection">
-            <button type="button" data-menu-page="3" data-category="Rice">Rice</button>
-            <button type="button" data-menu-page="7" data-category="Noodles">Noodles</button>
-            <button type="button" data-menu-page="11" data-category="Western">Western</button>
-            <button type="button" data-menu-page="13" data-category="Bread">Bread</button>
-            <button type="button" data-menu-page="18" data-category="Drinks">Drinks</button>
-          </div>
-          <p id="galleryHint" class="gallery-hint">Choose a collection to begin.</p>
-          <div class="gallery-actions">
-            <a class="btn btn-dark" href="menu-9-kopitiam.pdf" target="_blank" rel="noopener">View complete menu</a>
-          </div>
-        </div>
-        <div class="menu-viewer reveal">
-          <span id="galleryBadge" class="gallery-badge">9 Kopitiam Collection</span>
-          <img id="menuPage" src="assets/menu/page-02.jpg" alt="9 Kopitiam food collection" loading="eager" />
-          <div id="galleryControls" class="gallery-controls" role="group" aria-label="Menu gallery controls">
-            <button id="prevPage" class="gallery-arrow gallery-arrow-left" aria-label="Previous menu">←</button>
-            <span class="gallery-count"><b id="currentPage">1</b> / <span id="pageTotal">23</span></span>
-            <button id="nextPage" class="gallery-arrow gallery-arrow-right" aria-label="Next menu">→</button>
-          </div>
-        </div>
+      <div class="section-heading reveal">
+        <p class="eyebrow">COMPLETE MENU</p>
+        <h2><span id="galleryTitle">Browse every page.</span></h2>
       </div>
-      <div id="categoryPages" class="category-pages" aria-live="polite"></div>
+      <div class="gallery-tabs reveal" aria-label="Jump to a menu category">
+        <button type="button" data-menu-page="3" data-category="Rice">Rice</button>
+        <button type="button" data-menu-page="7" data-category="Noodles">Noodles</button>
+        <button type="button" data-menu-page="11" data-category="Western">Western</button>
+        <button type="button" data-menu-page="13" data-category="Bread">Bread</button>
+        <button type="button" data-menu-page="18" data-category="Drinks">Drinks</button>
+      </div>
+      <div class="gallery-controls reveal" role="group" aria-label="Menu gallery controls">
+        <button id="prevPage" aria-label="Previous page">←</button>
+        <span><b id="currentPage">1</b> / 23</span>
+        <button id="nextPage" aria-label="Next page">→</button>
+      </div>
+      <div class="menu-viewer reveal">
+        <img id="menuPage" src="assets/menu/page-01.jpg" alt="9 Kopitiam menu page 1" loading="eager" />
+      </div>
+      <div class="gallery-actions">
+        <a class="btn btn-dark" href="menu-9-kopitiam.pdf" target="_blank" rel="noopener">Download / print menu</a>
+      </div>
       <p class="notice">Photos are for illustration purposes only. Prices are subject to service charge and SST. Takeaway packaging charges apply.</p>
     </section>
 
@@ -171,7 +164,7 @@
         <article class="outlet-card reveal">
           <div class="outlet-top"><span class="outlet-number">03</span><span class="outlet-status">Open</span></div>
           <h3>Silk Residence</h3>
-          <p>Ten Kinrara, Puchong</p>
+          <p>G-11, Silk Residence, Sutera, Cheras, Selangor</p>
           <div class="outlet-contact">019-275 7006</div>
           <div class="outlet-actions">
             <a class="outlet-btn call" href="tel:+60192757006" aria-label="Call Silk Residence">Call now</a>
@@ -205,7 +198,7 @@
 
   <footer>
     <div>
-      <img class="brand-logo footer-logo" src="assets/9kopitiam-logo.jpeg" alt="9 Kopitiam logo" />
+      <span class="brand-mark">9</span>
       <h3>9 KOPITIAM</h3>
       <p>Local taste. Original comfort.</p>
     </div>
