@@ -112,3 +112,9 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
 .floating-home span{font-size:20px;line-height:1;color:#e9c77d}
 .floating-home:hover,.floating-home:focus-visible{transform:translateY(-3px);background:#8f2724;outline:none}
 @media(max-width:520px){.floating-home{right:14px;bottom:14px;min-height:42px;padding:9px 12px}.floating-home b{font-size:11px}}
+
+
+/* Hide Home on the main hero */
+.floating-home{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px)}
+.floating-home.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.floating-home.is-visible:hover,.floating-home.is-visible:focus-visible{transform:translateY(-3px)}
