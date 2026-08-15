@@ -66,3 +66,11 @@ footer{background:#0f271d;color:white;padding:60px clamp(20px,7vw,110px) 28px;di
   .hero .eyebrow{margin-bottom:12px}
   .hero-copy{margin-top:20px;margin-bottom:24px}
 }
+
+
+/* Neat 3 + 2 mobile category buttons */
+@media(max-width:520px){
+  .gallery-tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;width:100%;margin:12px auto 24px;border-radius:26px}
+  .gallery-tabs button{grid-column:span 2;width:100%;min-width:0;padding:11px 6px;font-size:13px;white-space:nowrap}
+  .gallery-tabs button:nth-child(4),.gallery-tabs button:nth-child(5){grid-column:span 3}
+}
